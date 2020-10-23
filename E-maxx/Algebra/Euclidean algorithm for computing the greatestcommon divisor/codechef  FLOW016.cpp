@@ -1,9 +1,12 @@
 /// Bismillahir Rahmanir Rahim
-
+/* Author: Mohammad Morsalin (aka white_space)
+    Dept of ICE, NSTU
+*/
 #include<bits/stdc++.h>
 #define ll long long
 #define pb push_back
 #define mp make_pair
+#define endl "\n"
 #define f0(n) for(int i=0;i<n;i++)
 #define ms(x) memset(x,0,sizeof(x))
 #define ins insert
@@ -37,29 +40,18 @@ bool sortinrev(const pair<int,int> &a,
 {
        return (a.first > b.first);
 }
-int n,coins[100],t[100][100],tot;
-void coinway(){
-    for(int i=1;i<=n;i++){
-        t[i][0] = 1;
-        for(int j=1;j<=tot;j++){
-            if(j>=coins[i]){
-                t[i][j] = t[i-1][j] + t[i][j-coins[i]];
-            }
-            else t[i][j] = t[i-1][j];
-        }
-    }
-}
 int main()
 {
     IOS
-    cout << "Number of different coins: ";
-    cin>>n;
-    cout << "Put "<< n << " coins respectevly: ";
-    for(int i=1;i<=n;i++)cin>>coins[i];
-    cout << "Now put the tot: ";
-    cin>>tot;
-    coinway();
-    cout << t[tot-1][tot-1] << endl;
+    int t;
+    cin>>t;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+        ll g=__gcd(a,b);
+        ll lc=(a*b)/g;
+        cout << g << " "<< lc << endl;
+    }
     return 0;
 }
 ///Alhamdulillah

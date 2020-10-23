@@ -24,15 +24,16 @@ bool sortinrev(const pair<int,int> &a,
 {
        return (a.first > b.first);
 }
-vector<int>computeLcp(string pat){
-    int m = pat.size();
+vector<int>a,b;
+vector<int>computeLcp(){
+    int m = b.size();
     vector<int>lcp(m);
     lcp[0] = 0;
     int len = 0;
     int i = 1;
     while(i<m)
     {
-        if(pat[len]==pat[i])
+        if(b[len]==b[i])
         {
             len++;
             lcp[i] = len;
@@ -53,15 +54,16 @@ vector<int>computeLcp(string pat){
     }
     return lcp;
 }
-int kmp(string txt,string pat)
+int kmp()
 {
-    vector<int>lcp=computeLcp(pat);
-    int n=txt.size(),m = pat.size();
+    vector<int>lcp=computeLcp();
+    int n=a.size(),m = b.size();
     int i = 0,j = 0;
     int cnt = 0;
     while(i<n)
     {
-        if(pat[j]==txt[i])
+        cout << b[j] << " "<< a[i] << endl;
+        if(b[j]==a[i])
         {
             i++;j++;
         }
@@ -70,7 +72,7 @@ int kmp(string txt,string pat)
             cnt++;
             j = lcp[j-1];
         }
-        else if(i<n && pat[j]!=txt[i])
+        else if(i<n && b[j]!=a[i])
         {
             if(j!=0)
             {
@@ -81,16 +83,25 @@ int kmp(string txt,string pat)
     }
     return cnt++;
 }
-int main()
+signed main()
 {
-	IOS
-    string s,t;
-    cin>>s;
-    vector<int>lcp;
-    lcp=computeLcp(s);
-    for(int i=0;i<lcp.size();i++)
-        cout << lcp[i]<<" ";
-    cout << endl;
+    IOS
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        a.pb(x);
+    }
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        b.pb(x);
+    }
+    for(int i=0;i<n;i++){
+        a.pb(a[i]);
+    }
+    cout << kmp() << endl;
     return 0;
 }
 
