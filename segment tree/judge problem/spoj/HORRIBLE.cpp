@@ -122,13 +122,13 @@ int main()
             {
                 ll p,q,v;
                 cin>>p>>q>>v;
-                updateRange(1,1,n,p,q,v);
+                updateRange(0,0,n-1,p,q,v);
             }
             else if(w==1)
             {
                 ll p,q;
                 cin>>p>>q;
-                cout << queryRange(1,1,n,p,q)<<endl;
+                cout << queryRange(0,0,n-1,p,q)<<endl;
             }
         }
     }
