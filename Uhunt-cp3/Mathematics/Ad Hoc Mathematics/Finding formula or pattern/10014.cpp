@@ -84,19 +84,36 @@ bool sortinrev(const pair<int,int> &a,
 {
        return (a.first > b.first);
 }
-
+//int tc=0;
 ///solution
 void solution(){
-    
+    int n;
+    cin>>n;
+    double a0,an1;
+    cin>>a0>>an1;
+    double res= (double)n*a0+an1;
+    //debug(res);
+    double sum=0.0;
+    for(int i=1;i<=n;i++){
+    	double c;
+    	cin>>c;
+    	sum+=c;
+    	res-=(2*sum);
+    }
+    //debug(res);
+    cout << fixed << setprecision(2)<< (res/(n+1)) << endl;
 }
 signed main()
 {
-    IOS
+	IOS
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
+        if(t>0){
+            cout << endl;
+        }
     }
     return 0;
 }

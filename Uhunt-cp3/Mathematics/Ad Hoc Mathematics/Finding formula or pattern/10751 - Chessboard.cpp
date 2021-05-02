@@ -87,14 +87,19 @@ bool sortinrev(const pair<int,int> &a,
 
 ///solution
 void solution(){
-    
+    int n;
+    cin>>n;
+    double ans=0;
+    if(n==1){cout << fixed<< setprecision(5) << ans << endl;return;}
+    ans = (n*n) + ((sqrt(2)-1)*pow(n-2,2));
+    cout << fixed << setprecision(5) << ans << endl; 
 }
 signed main()
 {
-    IOS
+	IOS
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
     }

@@ -1,15 +1,12 @@
 /// Bismillahir Rahmanir Rahim
-/* ID: white_space 
-   Name: Mohammad Morsalin
-   Study: Dept of ICE, NSTU
-   blog: morsalinspace.blogspot.com
+/* Mohammad Morsalin
+   Dept of ICE, NSTU
 */
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define pb push_back
 #define mp make_pair
-#define int long long
 #define f0(n) for(int i=0;i<n;i++)
 #define ms(x) memset(x,0,sizeof(x))
 #define CLR(x) memset(x, -1, sizeof(x))
@@ -84,17 +81,29 @@ bool sortinrev(const pair<int,int> &a,
 {
        return (a.first > b.first);
 }
-
+int tc=0;
 ///solution
+ll cur(ll n,ll m, ll k){
+    if(k>n || k>m)return 0;
+    if(k==0)return 1;
+    if(m==1)return n;
+    return n*cur(n-1,m-1,k-1)+cur(n,m-1,k);
+}
 void solution(){
-    
+    ll n,k;
+    cin>>n>>k;
+    cout << "Case "<<++tc<< ": "<< cur(n,n,k)<< endl;
 }
 signed main()
 {
     IOS
+    #ifndef ONLINE_JUDGE
+        freopen ("input.txt","r",stdin);
+        freopen ("output.txt","w",stdout);
+    #endif
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
     }

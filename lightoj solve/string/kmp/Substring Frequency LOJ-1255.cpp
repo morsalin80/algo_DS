@@ -1,15 +1,12 @@
 /// Bismillahir Rahmanir Rahim
-/* ID: white_space 
-   Name: Mohammad Morsalin
-   Study: Dept of ICE, NSTU
-   blog: morsalinspace.blogspot.com
+/* Mohammad Morsalin
+   Dept of ICE, NSTU
 */
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define pb push_back
 #define mp make_pair
-#define int long long
 #define f0(n) for(int i=0;i<n;i++)
 #define ms(x) memset(x,0,sizeof(x))
 #define CLR(x) memset(x, -1, sizeof(x))
@@ -84,17 +81,53 @@ bool sortinrev(const pair<int,int> &a,
 {
        return (a.first > b.first);
 }
-
+string a,b;
+int tc=0;
+vector<int>prefix_function(){
+	int m=b.size();
+	vector<int>p(m);
+	for(int i=1;i<m;i++){
+		int j=p[i-1];
+		while(j>0 && b[j]!=b[i]){
+			j=p[j-1];
+		}
+		if(b[j]==b[i])j++;
+		p[i]=j;
+	}
+	return p;
+}
+int kmp(){
+	int n=a.size(),m=b.size();
+	vector<int>p=prefix_function();
+	int i=0,j=0,cnt=0;
+	while(i<n){
+		if(a[i]==b[j]){
+			i++;j++;
+		}
+		if(j==m){
+			cnt++;
+			j=p[j-1];
+		}
+		else if(i<n && a[i]!=b[j]){
+			if(j!=0){
+				j=p[j-1];
+			}
+			else i++;
+		}
+	}
+	return cnt++;
+}
 ///solution
 void solution(){
-    
+    cin>>a>>b;
+    cout << "Case "<< ++tc << ": "<<kmp()<< endl;
 }
 signed main()
 {
-    IOS
+	IOS
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
     }

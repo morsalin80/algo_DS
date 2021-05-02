@@ -87,14 +87,20 @@ bool sortinrev(const pair<int,int> &a,
 
 ///solution
 void solution(){
-    
+    int n;
+    cin>>n;
+    int fh=n/2;
+    int sh=(n-n/2);
+    int ans= (fh*(fh-1))/2;
+    ans+=(sh*(sh-1))/2;
+    cout << ans << endl;
 }
 signed main()
 {
-    IOS
+	IOS
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
     }

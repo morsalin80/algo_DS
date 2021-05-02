@@ -3,9 +3,6 @@
    Dept of ICE, NSTU
 */
 #include<bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
 #define ll long long
 #define pb push_back
 #define mp make_pair
@@ -15,7 +12,7 @@ using namespace __gnu_pbds;
 #define ms(x) memset(x,0,sizeof(x))
 #define ms2d(x,m,n) memset(x, 0, sizeof(x[0][0]) * m * n)
 #define uniq(vec) vec.resize(distance(vec.begin(),unique(vec.begin(),vec.end())))
-#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
+//#define ordered_set tree<int, null_type,less<int>, rb_tree_tag,tree_order_statistics_node_update>
 #define pi pair<int,int>
 #define tc(t) int t;cin>>t;while(t--)
 #define bits(n) __builtin_popcount(n)
@@ -35,7 +32,7 @@ using namespace __gnu_pbds;
 #define IOS ios::sync_with_stdio(false);
 using namespace std;
 int gcd(int a, int b) { if (a == 0) return b; return gcd(b % a, a);}
-typedef tree<pair<int, int>,null_type,less<pair<int, int>>,rb_tree_tag,tree_order_statistics_node_update> ordered_multiset;
+//typedef tree<pair<int, int>,null_type,less<pair<int, int>>,rb_tree_tag,tree_order_statistics_node_update> ordered_multiset;
 int dx8[] = {0, 0, 1, 1, 1, -1, -1, -1};
 int dy8[] = {1,-1, 1, -1, 0, 0, -1, 1};
 int dx4[] = {0, 0, 1, -1};
@@ -74,12 +71,13 @@ signed main()
         unsigned int h=0;
         for(int i=a-1;i>=0;i--){
             h = h*p+sa[i];
-           // cout << h << endl;
+         //  	cout << "h: "<< h << endl;
         }
         ms(hh);
         for(int i=(int)sb.size()-1;i>=0;i--){
             hh[i]=hh[i+1]*p+sb[i];
-            //cout << hh[i] << " ";
+           // cout << hh[i] << " ";
+            //debug(hh[i]);
         }
         bool ok=0;
         b=sb.size();
@@ -87,6 +85,7 @@ signed main()
             for(int i=0;i<=b-a;i++){
                 unsigned int cur_h=hh[i]-(hh[i+a]*precal[a]);
                 //cout << cur_h << " " << h << endl;
+                //debu(cur_h,h);
                 if(cur_h==h){
                     cout << i << endl;
                     ok=1;

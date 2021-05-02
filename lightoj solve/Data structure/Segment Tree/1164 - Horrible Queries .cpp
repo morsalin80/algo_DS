@@ -92,6 +92,7 @@ bool sortinrev(const pair<int,int> &a,
 ///solution
 const int maxx=100005;
 ll stree[3*maxx],lazy[3*maxx],arr[maxx];
+
 void update(int l,int r,int u,int v,int pos,int val){
     if(lazy[pos]!=0){
         stree[pos]+=(lazy[pos]*(r-l+1)*1ll);

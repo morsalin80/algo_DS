@@ -9,7 +9,6 @@ using namespace std;
 #define ll long long
 #define pb push_back
 #define mp make_pair
-#define int long long
 #define f0(n) for(int i=0;i<n;i++)
 #define ms(x) memset(x,0,sizeof(x))
 #define CLR(x) memset(x, -1, sizeof(x))
@@ -87,14 +86,16 @@ bool sortinrev(const pair<int,int> &a,
 
 ///solution
 void solution(){
+    char c;
+    cin>>c;
     
 }
 signed main()
 {
-    IOS
+	IOS
     int t;
     t=1;
-    //cin>>t;
+    cin>>t;
     while(t--){
         solution();
     }
